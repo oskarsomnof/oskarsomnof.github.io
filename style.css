@@ -1,106 +1,11 @@
-body {
-  margin: 0;
-  background: #0c0c0c;
-  color: #e0e0e0;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-}
-
-header {
-  background: #111;
-  padding: 15px 0;
-  text-align: center;
-  position: sticky;
-  top: 0;
-  z-index: 10;
-}
-
-nav a {
-  color: #ccc;
-  text-decoration: none;
-  margin: 0 15px;
-  font-size: 1rem;
-  transition: color 0.2s;
-}
-
-nav a:hover, nav a.active {
-  color: #fff;
-}
-
-main {
-  max-width: 800px;
-  margin: 60px auto;
-  padding: 0 20px;
-}
-
-h1, h2 {
-  color: #fff;
-  font-weight: 400;
-}
-
-.home-photo {
-  display: block;
-  margin: 40px auto;
-  max-width: 100%;
-  border-radius: 8px;
-}
-
-.playlist h2 {
-  cursor: pointer;
-  margin-bottom: 10px;
-  border-bottom: 1px solid #333;
-  padding-bottom: 5px;
-}
-
-.playlist-content {
-  display: none;
-  margin-bottom: 20px;
-}
-
-.playlist-content audio {
-  display: block;
-  width: 100%;
-  margin-bottom: 10px;
-}
-
-.video-grid {
-  display: grid;
-  gap: 20px;
-  grid-template-columns: 1fr;
-}
-
-.video-grid iframe {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-}
-
-footer {
-  text-align: center;
-  padding: 20px;
-  font-size: 0.9rem;
-  color: #777;
-}
-
-.social-links {
-  margin-top: 20px;
-}
-
-.social-links a {
-  color: #ccc;
-  text-decoration: none;
-  margin-right: 15px;
-}
-
-.social-links a:hover {
-  color: #fff;
-}
-/* Portfolio layout */
 .portfolio {
-  max-width: 900px;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 2rem;
 }
 
-.playlists {
+/* Playlists side by side */
+.playlist-row {
   display: flex;
   justify-content: space-between;
   gap: 2rem;
@@ -113,7 +18,7 @@ footer {
 }
 
 .playlist h2 {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   margin-bottom: 0.5rem;
 }
 
@@ -123,18 +28,22 @@ footer {
   margin-bottom: 0.5rem;
 }
 
-.videos {
+/* Videos side by side */
+.video-row {
   display: flex;
   justify-content: space-between;
+  gap: 1.5rem;
   flex-wrap: wrap;
-  gap: 1rem;
-  margin-top: 2rem;
+  margin-top: 2.5rem;
+}
+
+.video {
+  flex: 1;
+  min-width: 300px;
 }
 
 .video iframe {
   width: 100%;
-  max-width: 280px;
-  height: 157px;
+  aspect-ratio: 16 / 9;
   border-radius: 8px;
 }
-
