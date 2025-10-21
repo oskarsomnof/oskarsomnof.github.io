@@ -1,49 +1,182 @@
-.portfolio {
-  max-width: 1000px;
+/* ----------------------
+   Global / Base styles
+   ---------------------- */
+:root{
+  --bg:#0c0c0c;
+  --panel:#111;
+  --muted:#777;
+  --text:#e0e0e0;
+  --accent:#fff;
+  --max-w:900px;
+  --gap:1rem;
+}
+
+* { box-sizing: border-box; }
+
+html,body {
+  height: 100%;
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* Header / nav — centered and consistent */
+header {
+  background: var(--panel);
+  padding: 14px 0;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 0 0 rgba(0,0,0,0); /* keep minimal */
+}
+
+nav {
+  max-width: var(--max-w);
   margin: 0 auto;
-  padding: 2rem;
-}
-
-/* Playlists side by side */
-.playlist-row {
   display: flex;
-  justify-content: space-between;
-  gap: 2rem;
-  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+  align-items: center;
+  padding: 0 20px;
 }
 
-.playlist {
-  flex: 1;
-  min-width: 300px;
+nav a {
+  color: #cfcfcf;
+  text-decoration: none;
+  font-size: 1rem;
+  letter-spacing: 0.01em;
+  transition: color 180ms ease;
+  padding: 6px 4px;
 }
 
-.playlist h2 {
-  font-size: 1.3rem;
-  margin-bottom: 0.5rem;
+nav a:hover,
+nav a.active {
+  color: var(--accent);
 }
 
-.playlist audio {
+/* Main container — centralized for all pages */
+main {
+  max-width: var(--max-w);
+  margin: 60px auto;
+  padding: 0 20px 80px;
+  line-height: 1.5;
+}
+
+/* Headings */
+h1, h2 {
+  color: var(--accent);
+  font-weight: 400;
+  margin: 0 0 12px 0;
+}
+
+/* Homepage image */
+.home-photo {
   display: block;
-  width: 100%;
-  margin-bottom: 0.5rem;
+  margin: 28px auto;
+  max-width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.4);
 }
 
-/* Videos side by side */
-.video-row {
+/* Links, footer */
+a { color: #cfcfcf; }
+a:hover { color: var(--accent); }
+
+footer {
+  text-align: center;
+  padding: 22px 12px;
+  font-size: 0.9rem;
+  color: var(--muted);
+  background: transparent;
+  margin-top: 40px;
+}
+
+/* Social links */
+.social-links { margin-top: 18px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+.social-links a { color: #cfcfcf; text-decoration:none; }
+
+/* Small utilities */
+.center { text-align:center; }
+.small { font-size:0.95rem; color:var(--muted); }
+
+/* ----------------------
+   Portfolio-specific styles
+   Scoped under .portfolio so it won't overwrite globals
+   ---------------------- */
+.portfolio {
+  /* we use slightly larger max-width for portfolio pages if desired */
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 0 20px 80px;
+}
+
+/* Playlists row (side-by-side on desktop, stacked on small screens) */
+.portfolio .playlist-row {
   display: flex;
+  gap: 2rem;
   justify-content: space-between;
-  gap: 1.5rem;
+  align-items: flex-start;
   flex-wrap: wrap;
-  margin-top: 2.5rem;
+  margin-top: 12px;
 }
 
-.video {
-  flex: 1;
-  min-width: 300px;
+/* Each playlist column */
+.portfolio .playlist {
+  background: transparent; /* keep minimalist */
+  flex: 1 1 44%;
+  min-width: 280px;
+  padding: 6px 0;
 }
 
-.video iframe {
+/* Playlist heading style (no emoji) */
+.portfolio .playlist h2 {
+  font-size: 1.15rem;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #222;
+  padding-bottom: 8px;
+  color: var(--accent);
+}
+
+/* Make audio players full width of the column */
+.portfolio .playlist audio {
+  width: 100%;
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* Videos row and video tiles */
+.portfolio .video-row {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 26px;
+}
+
+/* each video column scaled to be smaller — half-size-ish */
+.portfolio .video {
+  flex: 1 1 48%;
+  min-width: 260px;
+  max-width: 48%;
+}
+
+/* ensure iframe fits its container and maintains 16:9 */
+.portfolio .video iframe {
   width: 100%;
   aspect-ratio: 16 / 9;
-  border-radius: 8px;
+  border-radius: 6px;
+  border: 0;
+  background: #000;
+  display: block;
+}
+
+/* Responsive adjustments */
+@media (max-width: 760px) {
+  nav { gap: 12px; }
+  main { margin: 40px 12px; padding: 0 14px 60px; }
+  .portfolio .playlist { flex-basis: 100%; min-width: 100%; }
+  .portfolio .video { flex-basis: 100%; max-width: 100%; }
 }
