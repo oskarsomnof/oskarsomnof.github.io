@@ -93,3 +93,48 @@ footer {
 .social-links a:hover {
   color: #fff;
 }
+/* Portfolio layout */
+.portfolio {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.playlists {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.playlist {
+  flex: 1;
+  min-width: 300px;
+}
+
+.playlist h2 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.playlist audio {
+  display: block;
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+.videos {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.video iframe {
+  width: 100%;
+  max-width: 280px;
+  height: 157px;
+  border-radius: 8px;
+}
+
