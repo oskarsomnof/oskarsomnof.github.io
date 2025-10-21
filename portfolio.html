@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio - Oskar Somnof</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio – Oskar Somnof</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
@@ -19,35 +18,42 @@
   <main class="portfolio">
     <h1>Portfolio</h1>
 
-    <section class="playlist">
-      <h2 onclick="togglePlaylist('piano')">Piano</h2>
-      <div id="piano" class="playlist-content">
-        <audio controls src="audio/piano1.mp3"></audio>
-        <audio controls src="audio/piano2.mp3"></audio>
-        <audio controls src="audio/piano3.mp3"></audio>
+    <!-- Playlists -->
+    <section class="playlists">
+      <div class="playlist">
+        <h2>Piano</h2>
+        <audio controls>
+          <source src="audio/piano1.mp3" type="audio/mpeg">
+        </audio>
+        <audio controls>
+          <source src="audio/piano2.mp3" type="audio/mpeg">
+        </audio>
+      </div>
+
+      <div class="playlist">
+        <h2>Electronic</h2>
+        <audio controls>
+          <source src="audio/electronic1.mp3" type="audio/mpeg">
+        </audio>
+        <audio controls>
+          <source src="audio/electronic2.mp3" type="audio/mpeg">
+        </audio>
       </div>
     </section>
 
-    <section class="playlist">
-      <h2 onclick="togglePlaylist('electronic')">Electronic</h2>
-      <div id="electronic" class="playlist-content">
-        <audio controls src="audio/electronic1.mp3"></audio>
-        <audio controls src="audio/electronic2.mp3"></audio>
-        <audio controls src="audio/electronic3.mp3"></audio>
-      </div>
-    </section>
-
+    <!-- Videos -->
     <section class="videos">
-      <h2>Videos</h2>
-      <div class="video-grid">
-        <iframe src="https://www.youtube.com/embed/example1" frameborder="0" allowfullscreen></iframe>
-        <iframe src="https://www.youtube.com/embed/example2" frameborder="0" allowfullscreen></iframe>
+      <div class="video">
+        <iframe width="280" height="157" src="https://www.youtube.com/embed/XXXXXXXXXXX" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div class="video">
+        <iframe width="280" height="157" src="https://www.youtube.com/embed/YYYYYYYYYYY" frameborder="0" allowfullscreen></iframe>
       </div>
     </section>
   </main>
 
   <footer>
-    <p>© 2025 Oskar Somnof</p>
+    <p>&copy; Oskar Somnof</p>
   </footer>
 </body>
 </html>
