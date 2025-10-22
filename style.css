@@ -164,6 +164,16 @@ audio {
   border: none;
 }
 
+audio::-webkit-media-controls-panel {
+  background-color: #111;
+  border-radius: 0;
+}
+
+audio::-webkit-media-controls-enclosure {
+  background-color: transparent;
+  border-radius: 0;
+}
+
 .track {
   display: flex;
   align-items: center;
