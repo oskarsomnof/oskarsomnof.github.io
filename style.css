@@ -147,6 +147,14 @@ footer {
   margin-bottom: 10px;
 }
 
+audio {
+  width: 100%;
+  background-color: #111; /* dark background */
+  border-radius: 8px;
+  filter: invert(0.85) hue-rotate(180deg); /* darkens the control bar */
+  margin-bottom: 8px;
+}
+
 /* Videos row and video tiles */
 .portfolio .video-row {
   display: flex;
