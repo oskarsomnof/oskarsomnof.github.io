@@ -164,6 +164,22 @@ audio {
   border: none;
 }
 
+.track {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* keeps spacing even */
+  gap: 15px; /* space between title and player */
+  margin-bottom: 15px;
+}
+
+.track-title {
+  flex-shrink: 0; /* prevents title from shrinking */
+  font-size: 1rem;
+  color: #ddd;
+  width: 120px; /* optional, keeps titles aligned */
+  text-align: right; /* gives a neat column-like look */
+}
+
 /* Videos row and video tiles */
 .portfolio .video-row {
   display: flex;
