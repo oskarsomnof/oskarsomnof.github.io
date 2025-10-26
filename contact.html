@@ -29,5 +29,18 @@
   <footer>
     <p>© 2025 Oskar Somnof</p>
   </footer>
+  
+<script>
+// Protects email from bots by constructing it dynamically
+const user = 'contact';
+const domain = 'oskarsomnof.com';
+const email = `${user}@${domain}`;
+const span = document.getElementById('email');
+const link = document.createElement('a');
+link.href = `mailto:${email}`;
+link.textContent = email;
+span.appendChild(link);
+</script>
+  
 </body>
 </html>
