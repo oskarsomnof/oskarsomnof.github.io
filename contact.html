@@ -17,11 +17,11 @@
 
   <main class="contact">
     <h1>Get in touch!</h1>
-    <p>Email: <a href="mailto:contact@oskarsomnof.com">contact@oskarsomnof.com</a></p>
+    <p>Email: <span id="email"></span></p>
 
     <div class="social-links">
       <a href="https://www.instagram.com/oskarsomnoff/" target="_blank">Instagram</a>
-      <a href="https://www.facebook.com/oskarsomnof" target="_blank">Facebook</a>
+      <a href="https://www.facebook.com/oskarsomnoff" target="_blank">Facebook</a>
       <a href="https://soundcloud.com/oskar-somnof" target="_blank">SoundCloud</a>
     </div>
   </main>
@@ -29,18 +29,17 @@
   <footer>
     <p>© 2025 Oskar Somnof</p>
   </footer>
-  
-<script>
-// Protects email from bots by constructing it dynamically
-const user = 'contact';
-const domain = 'oskarsomnof.com';
-const email = `${user}@${domain}`;
-const span = document.getElementById('email');
-const link = document.createElement('a');
-link.href = `mailto:${email}`;
-link.textContent = email;
-span.appendChild(link);
-</script>
-  
+
+  <script>
+    // Protects email from bots by constructing it dynamically
+    const user = 'contact';
+    const domain = 'oskarsomnof.com';
+    const email = `${user}@${domain}`;
+    const span = document.getElementById('email');
+    const link = document.createElement('a');
+    link.href = `mailto:${email}`;
+    link.textContent = email;
+    span.appendChild(link);
+  </script>
 </body>
 </html>
