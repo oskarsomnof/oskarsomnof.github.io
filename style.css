@@ -244,3 +244,26 @@ align-items: center; /* horizontal centering */
 min-height: calc(100vh - 120px); /* keeps within viewport minus header/footer */
 text-align: center;
 }
+
+/* Remove unnecessary scroll space on Portfolio page */
+.portfolio {
+  max-width: 1000px;
+  margin: 40px auto 0; /* Remove bottom margin */
+  padding: 0 20px 40px; /* Reduce bottom padding */
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-y: auto; /* allow scroll only if necessary */
+}
+
+main {
+  flex: 1;
+  margin-bottom: 0; /* prevents extra white space */
+}
+
+footer {
+  margin-top: auto; /* pushes footer to bottom without adding scroll */
+}
