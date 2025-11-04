@@ -236,6 +236,16 @@ footer {
    gap: 10px;
 }
 
+.footer-center {
+  flex: 1;
+  text-align: center; /* centers the tagline */
+}
+
+.footer-right {
+  text-align: right;
+  white-space: nowrap; /* prevents wrapping if screen is narrow */
+}
+
 #contact {
 display: flex;
 flex-direction: column;
