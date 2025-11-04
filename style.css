@@ -229,14 +229,14 @@ main {
 }
 
 footer {
-   display: flex;
+  display: flex;
   justify-content: space-between; /* separates center and right items */
   align-items: center;
   background-color: #111;
   color: #ccc;
   text-align: right;
   padding: 10px 30px;
-   gap: 10px;
+  gap: 10px;
 }
 
 .footer-center {
