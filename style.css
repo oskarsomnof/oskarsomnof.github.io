@@ -77,8 +77,8 @@ h1, h2 {
   display: block;
   margin: 28px auto;
   max-width: 33%;
-  border-radius: 8px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+  border-radius: 0px;
+  box-shadow: 0 0px 0px rgba(0,0,0,0.4);
 }
 
 /* Links, footer */
