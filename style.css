@@ -241,6 +241,7 @@ footer {
 
 .footer-center {
   flex: 1;
+  color: #999;
   text-align: center; /* centers the tagline */
 }
 
