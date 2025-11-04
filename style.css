@@ -267,3 +267,27 @@ main {
 footer {
   margin-top: auto; /* pushes footer to bottom without adding scroll */
 }
+
+.home .intro {
+  display: flex;
+  align-items: center;        /* vertically center text with image */
+  justify-content: center;    /* centers both on the page */
+  gap: 40px;                  /* space between text and image */
+  flex-wrap: wrap;            /* allows wrapping on small screens */
+  text-align: left;
+}
+
+.home .intro img {
+  max-width: 300px;           /* control image size */
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+}
+
+.home .intro h1 {
+  margin-bottom: 0.5rem;
+}
+
+.home .intro p {
+  max-width: 420px;
+  line-height: 1.6;
+}
