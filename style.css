@@ -229,6 +229,9 @@ main {
 }
 
 footer {
+   display: flex;
+  justify-content: space-between; /* separates center and right items */
+  align-items: center;
   background-color: #111;
   color: #ccc;
   text-align: right;
