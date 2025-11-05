@@ -140,30 +140,6 @@ footer {
   color: var(--accent);
 }
 
-/* Make audio players full width of the column */
-.portfolio .playlist audio {
-  width: 100%;
-  display: block;
-  margin-bottom: 10px;
-}
-
-audio {
-  width: 100%;
-  background-color: #111; /* dark background */
-  border-radius: 8px;
-  filter: invert(0.85) hue-rotate(180deg); /* darkens the control bar */
-  margin-bottom: 8px;
-}
-
-audio {
-  width: 100%;
-  background-color: #111;
-  border-radius: 0;
-  filter: invert(0.85) hue-rotate(180deg) brightness(0.8);
-  outline: none;
-  border: none;
-}
-
 .track {
   display: flex;
   align-items: center;
@@ -326,4 +302,26 @@ footer {
 .home .intro-content p {
   max-width: 420px;
   line-height: 1.6;
+}
+
+/* Plyr dark theme tweaks to match site */
+.plyr {
+  background: #0b0b0b;
+  color: #e0e0e0;
+  border-radius: 8px;
+  border: none;
+  box-shadow: none;
+}
+
+.plyr__controls {
+  background: transparent;
+}
+
+.plyr--audio .plyr__control.plyr__control--overlaid {
+  color: #fff;
+}
+
+/* reduce default padding so it sits well in columns */
+.plyr__controls .plyr__control {
+  padding: 6px;
 }
