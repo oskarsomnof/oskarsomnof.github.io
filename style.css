@@ -325,3 +325,89 @@ footer {
 .plyr__controls .plyr__control {
   padding: 6px;
 }
+
+/* ---------- Track row: title left, player right, vertically centered ---------- */
+.portfolio .track {
+  display: flex;
+  align-items: center;      /* vertical centering */
+  gap: 18px;                /* space between title and player */
+  margin-bottom: 16px;
+}
+
+/* Title column on the left */
+.portfolio .track-title {
+  width: 160px;             /* fixed column width keeps titles aligned */
+  flex-shrink: 0;           /* don't let title collapse */
+  text-align: right;        /* right-aligned labels look like rack labels */
+  color: #d6d6d6;
+  font-size: 0.98rem;
+  line-height: 1;           /* keep the title vertically compact */
+  padding-right: 8px;
+}
+
+/* Make the player take the remaining horizontal space */
+.portfolio .track audio.js-player,
+.portfolio .track .plyr {
+  flex: 1 1 auto;
+  max-width: 100%;
+}
+
+/* ---------- Plyr dark theme overrides (minimal, contrast-optimized) ---------- */
+/* player container */
+.plyr {
+  background: #0c0c0c;      /* dark bar */
+  color: #e6e6e6;           /* icons / text */
+  border-radius: 10px;
+  border: none;
+  box-shadow: none;
+}
+
+/* controls row background (smaller padding, flat) */
+.plyr__controls {
+  background: transparent; /* we use the player container background */
+}
+
+/* control icons / text */
+.plyr__control,
+.plyr__time,
+.plyr__volume {
+  color: #e6e6e6 !important;
+}
+
+/* progress bar track (background) and buffer */
+.plyr .plyr__progress--played {
+  background: #9a9a9a; /* played portion */
+}
+.plyr .plyr__progress {
+  background: rgba(255,255,255,0.06); /* rail */
+}
+
+/* scrub handle */
+.plyr .plyr__progress__container .plyr__progress__tooltip,
+.plyr .plyr__progress__container .plyr__progress__handle {
+  background: #cfcfcf;
+}
+
+/* reduce default spacing so players sit compactly */
+.plyr__controls .plyr__control {
+  padding: 6px 8px;
+}
+
+/* make the big overlay play button subtle (audio only) */
+.plyr--audio .plyr__control.plyr__control--overlaid {
+  opacity: 0.85;
+}
+
+/* Responsive: on very narrow screens stack title above player */
+@media (max-width: 560px) {
+  .portfolio .track {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .portfolio .track-title {
+    width: 100%;
+    text-align: left;
+    padding-right: 0;
+    margin-bottom: 8px;
+  }
+}
