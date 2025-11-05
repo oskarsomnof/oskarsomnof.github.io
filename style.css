@@ -371,7 +371,7 @@ footer {
 .plyr__control,
 .plyr__time,
 .plyr__volume {
-  color: #e6e6e6 !important;
+  color: #333333 !important;
 }
 
 /* progress bar track (background) and buffer */
