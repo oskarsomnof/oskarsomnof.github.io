@@ -411,3 +411,34 @@ footer {
     margin-bottom: 8px;
   }
 }
+
+footer {
+  background: #0c0c0c;
+  padding: 20px 40px;
+  color: #777;
+  font-size: 0.9rem;
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  /* ensures perfect center alignment even if left or right grows */
+  text-align: center;
+}
+
+.footer-center {
+  flex: 1;
+  text-align: center;
+  color: #444;  /* darker gray */
+}
+
+.footer-right {
+  text-align: right;
+  padding-right: 30px; /* ✅ adds spacing to the right */
+  color: #555;
+}
