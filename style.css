@@ -240,7 +240,7 @@ footer {
 }
 
 #contact {
-display: flex;
+/* display: flex;
 flex-direction: column;
 justify-content: center; /* vertical centering */
 align-items: center; /* horizontal centering */
