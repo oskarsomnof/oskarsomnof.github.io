@@ -484,7 +484,7 @@ footer {
   footer .footer-inner {
     flex-direction: column;
     text-align: center;
-    gap: 8px;
+    gap: 12px;
   }
 
   footer .footer-center,
