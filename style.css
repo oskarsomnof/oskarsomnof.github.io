@@ -103,18 +103,18 @@ footer {
 .small { font-size:0.95rem; color:var(--muted); }
 
 /* ----------------------
-   Portfolio-specific styles
-   Scoped under .portfolio so it won't overwrite globals
+   projects-specific styles
+   Scoped under .projects so it won't overwrite globals
    ---------------------- */
-.portfolio {
-  /* we use slightly larger max-width for portfolio pages if desired */
+.projects {
+  /* we use slightly larger max-width for projects pages if desired */
   max-width: 1000px;
   margin: 40px auto;
   padding: 0 20px 80px;
 }
 
 /* Playlists row (side-by-side on desktop, stacked on small screens) */
-.portfolio .playlist-row {
+.projects .playlist-row {
   display: flex;
   gap: 2rem;
   justify-content: space-between;
@@ -124,7 +124,7 @@ footer {
 }
 
 /* Each playlist column */
-.portfolio .playlist {
+.projects .playlist {
   background: transparent; /* keep minimalist */
   flex: 1 1 44%;
   min-width: 280px;
@@ -132,7 +132,7 @@ footer {
 }
 
 /* Playlist heading style (no emoji) */
-.portfolio .playlist h2 {
+.projects .playlist h2 {
   font-size: 1.15rem;
   margin-bottom: 10px;
   border-bottom: 1px solid #222;
@@ -157,7 +157,7 @@ footer {
 }
 
 /* Videos row and video tiles */
-.portfolio .video-row {
+.projects .video-row {
   display: flex;
   gap: 1rem;
   justify-content: space-between;
@@ -166,14 +166,14 @@ footer {
 }
 
 /* each video column scaled to be smaller — half-size-ish */
-.portfolio .video {
+.projects .video {
   flex: 1 1 48%;
   min-width: 260px;
   max-width: 48%;
 }
 
 /* ensure iframe fits its container and maintains 16:9 */
-.portfolio .video iframe {
+.projects .video iframe {
   width: 100%;
   aspect-ratio: 16 / 9;
   border-radius: 6px;
@@ -186,8 +186,8 @@ footer {
 @media (max-width: 760px) {
   nav { gap: 12px; }
   main { margin: 40px 12px; padding: 0 14px 60px; }
-  .portfolio .playlist { flex-basis: 100%; min-width: 100%; }
-  .portfolio .video { flex-basis: 100%; max-width: 100%; }
+  .projects .playlist { flex-basis: 100%; min-width: 100%; }
+  .projects .video { flex-basis: 100%; max-width: 100%; }
 }
 html, body {
   height: 100%;
@@ -235,8 +235,8 @@ min-height: calc(100vh - 120px); /* keeps within viewport minus header/footer */
 text-align: center;
 }
 
-/* Remove unnecessary scroll space on Portfolio page */
-.portfolio {
+/* Remove unnecessary scroll space on projects page */
+.projects {
   max-width: 1000px;
   margin: 40px auto 0; /* Remove bottom margin */
   padding: 0 20px 40px; /* Reduce bottom padding */
@@ -327,7 +327,7 @@ footer {
 }
 
 /* ---------- Track row: title left, player right, vertically centered ---------- */
-.portfolio .track {
+.projects .track {
   display: flex;
   align-items: center;      /* vertical centering */
   gap: 18px;                /* space between title and player */
@@ -335,7 +335,7 @@ footer {
 }
 
 /* Title column on the left */
-.portfolio .track-title {
+.projects .track-title {
   width: 160px;             /* fixed column width keeps titles aligned */
   flex-shrink: 0;           /* don't let title collapse */
   text-align: right;        /* right-aligned labels look like rack labels */
@@ -346,8 +346,8 @@ footer {
 }
 
 /* Make the player take the remaining horizontal space */
-.portfolio .track audio.js-player,
-.portfolio .track .plyr {
+.projects .track audio.js-player,
+.projects .track .plyr {
   flex: 1 1 auto;
   max-width: 100%;
 }
@@ -400,11 +400,11 @@ footer {
 
 /* Responsive: on very narrow screens stack title above player */
 @media (max-width: 560px) {
-  .portfolio .track {
+  .projects .track {
     flex-direction: column;
     align-items: stretch;
   }
-  .portfolio .track-title {
+  .projects .track-title {
     width: 100%;
     text-align: left;
     padding-right: 0;
