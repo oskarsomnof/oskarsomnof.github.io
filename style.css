@@ -448,3 +448,8 @@ footer {
 .footer-left {
   width: 200px; /* same as before to keep center aligned */
 }
+
+video-caption {
+  color: #444
+  font-size: 0.9rem;
+  }
