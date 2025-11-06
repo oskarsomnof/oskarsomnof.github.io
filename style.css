@@ -30,7 +30,7 @@ html,body {
 
 /* Header / nav — centered and consistent */
 header {
-  background: var(--panel);
+  background: transparent;
   padding: 14px 0;
   position: sticky;
   top: 0;
