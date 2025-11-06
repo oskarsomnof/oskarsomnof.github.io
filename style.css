@@ -413,36 +413,39 @@ footer {
 }
 
 footer {
-  background: transparent;
+  width: 100%;
   padding: 20px 30px;
   font-size: 0.9rem;
-  color: #666; /* darker gray */
+  background: transparent;
+  color: #666;
 }
 
 .footer-inner {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /* pushes left and right outward */
   align-items: center;
-  max-width: 1000px;
-  margin: 0 auto;
   width: 100%;
+  position: relative; /* allows true centering */
 }
 
-/* center phrase */
+/* CENTER TEXT — perfect center with absolute centering trick */
 .footer-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #777;
   text-align: center;
-  color: #777; /* adjust independently */
-  flex: 1;
+  white-space: nowrap;
 }
 
-/* right-aligned copyright */
+/* RIGHT TEXT — stays on the right with spacing */
 .footer-right {
-  text-align: right;
-  min-width: 200px;
-  padding-right: 20px; /* extra spacing on the right edge */
+  margin-left: auto;
+  padding-right: 30px; /* adjust for more/less distance from right edge */
+  white-space: nowrap;
 }
 
-/* keep empty left block for symmetry */
+/* LEFT BLOCK — empty but needed for layout symmetry */
 .footer-left {
-  min-width: 200px;
+  width: 200px; /* same as before to keep center aligned */
 }
