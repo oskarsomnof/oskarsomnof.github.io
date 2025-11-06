@@ -474,3 +474,23 @@ footer {
   color: #444
   font-size: 0.9rem;
   }
+
+  /* Footer mobile fix */
+@media (max-width: 600px) {
+  footer .footer-inner {
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
+  }
+
+  footer .footer-center,
+  footer .footer-right,
+  footer .footer-left {
+    width: 100%;
+    text-align: center;
+  }
+
+  footer .footer-right {
+    margin-right: 0;
+  }
+}
