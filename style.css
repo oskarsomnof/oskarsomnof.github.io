@@ -417,7 +417,7 @@ footer {
   padding: 20px 30px;
   font-size: 0.9rem;
   background: transparent;
-  color: #666;
+  color: #444;
 }
 
 .footer-inner {
@@ -433,7 +433,6 @@ footer {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  color: #777;
   text-align: center;
   white-space: nowrap;
 }
