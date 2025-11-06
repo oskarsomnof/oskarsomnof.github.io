@@ -13,6 +13,11 @@
 
 * { box-sizing: border-box; }
 
+::selection {
+  background: #444;   /* highlight background */
+  color: #fff;        /* highlight text color */
+}
+
 html,body {
   height: 100%;
   margin: 0;
