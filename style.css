@@ -413,32 +413,36 @@ footer {
 }
 
 footer {
-  background: #0c0c0c;
-  padding: 20px 40px;
-  color: #777;
+  background: transparent;
+  padding: 20px 30px;
   font-size: 0.9rem;
+  color: #666; /* darker gray */
 }
 
 .footer-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  /* ensures perfect center alignment even if left or right grows */
-  text-align: center;
+  max-width: 1000px;
+  margin: 0 auto;
+  width: 100%;
 }
 
+/* center phrase */
 .footer-center {
-  flex: 1;
   text-align: center;
-  color: #444;  /* darker gray */
+  color: #777; /* adjust independently */
+  flex: 1;
 }
 
+/* right-aligned copyright */
 .footer-right {
   text-align: right;
-  padding-right: 30px; /* ✅ adds spacing to the right */
-  color: #555;
+  min-width: 200px;
+  padding-right: 20px; /* extra spacing on the right edge */
+}
+
+/* keep empty left block for symmetry */
+.footer-left {
+  min-width: 200px;
 }
