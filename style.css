@@ -555,3 +555,8 @@ footer {
   }
 }
 
+/* Remove extra bottom padding on Contact page */
+.contact {
+  padding-bottom: 20px !important;
+  margin-bottom: 0 !important;
+}
