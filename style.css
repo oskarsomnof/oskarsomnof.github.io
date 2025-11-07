@@ -619,7 +619,25 @@ body {
 .content {
   margin-left: 240px; /* space for sidebar */
   padding: 40px;
-  max-width: 1000px;
+  max-width: 900px; /* controls the width of your page content */
+  width: 100%;
+  margin-right: auto;
+  margin-left: 240px;
+  display: block;
+}
+
+/* center all content inside the content area */
+.content {
+  margin-left: 240px;
+  margin-right: auto;
+  max-width: 900px;
+}
+
+/* ensures the content block is centered in the remaining space */
+@media (min-width: 900px) {
+  .content {
+    margin-left: calc(240px + (100vw - 240px - 900px) / 2);
+  }
 }
 
 /* Responsive for mobile */
