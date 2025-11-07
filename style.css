@@ -447,13 +447,13 @@ footer {
 
 .footer-inner {
   display: flex;
-  justify-content: space-between; /* pushes left and right outward */
+  justify-content: space-between;
   align-items: center;
   width: 100%;
-  position: relative; /* allows true centering */
+  position: relative;
 }
 
-/* CENTER TEXT — perfect center with absolute centering trick */
+/* Center text (desktop) */
 .footer-center {
   position: absolute;
   left: 50%;
@@ -462,48 +462,58 @@ footer {
   white-space: nowrap;
 }
 
-/* RIGHT TEXT — stays on the right with spacing */
+/* Right text (desktop) */
 .footer-right {
   margin-left: auto;
-  padding-right: 30px; /* adjust for more/less distance from right edge */
+  padding-right: 30px;
   white-space: nowrap;
 }
 
-/* LEFT BLOCK — empty but needed for layout symmetry */
+/* Left block for balance */
 .footer-left {
-  width: 200px; /* same as before to keep center aligned */
+  width: 200px;
 }
 
+/* Fix: your missing semicolon */
 .video-caption {
-  color: #444
+  color: #444;
   font-size: 0.9rem;
-  }
+}
 
-  /* Footer mobile fix */
+/* ✅ MOBILE FIX — disable absolute centering so nothing overlaps */
 @media (max-width: 600px) {
-  footer .footer-inner {
-    flex-direction: column;
-    text-align: center;
-    gap: 8px;
+
+  footer {
+    padding: 28px 20px 36px;
   }
 
-  footer .footer-center,
-  footer .footer-right,
-  footer .footer-left {
-    width: 100%;
-    text-align: center;
-  }
-
-  footer .footer-right {
-    margin-right: 0;
-  }
-
-    .footer-inner {
+  .footer-inner {
     flex-direction: column;
     align-items: center;
-    gap: 12px; /* increases spacing between the two lines */
+    gap: 12px; /* spacing between lines */
+    position: static; /* IMPORTANT */
+  }
+
+  .footer-center {
+    position: static !important;  /* ✅ disable absolute */
+    transform: none !important;   /* ✅ remove desktop transform */
+    width: 100%;
+    text-align: center;
+    margin-bottom: 6px;
+  }
+
+  .footer-right {
+    width: 100%;
+    text-align: center;
+    margin: 0;
+    padding-right: 0;
+  }
+
+  .footer-left {
+    display: none; /* not needed on mobile */
   }
 }
+
 
 /* Mobile spacing tweaks for homepage */
 @media (max-width: 600px) {
