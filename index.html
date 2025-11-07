@@ -38,5 +38,52 @@
     </div>
   </div>
 </footer>
+
+<script>
+let startX = 0;
+let endX = 0;
+
+document.addEventListener("touchstart", e => {
+  startX = e.changedTouches[0].screenX;
+});
+
+document.addEventListener("touchend", e => {
+  endX = e.changedTouches[0].screenX;
+  handleSwipe();
+});
+
+function handleSwipe() {
+  const threshold = 80; // minimum pixels to count as a swipe
+
+  if (endX < startX - threshold) {
+    // swipe left → go forward
+    goNextPage();
+  }
+  if (endX > startX + threshold) {
+    // swipe right → go backward
+    goPrevPage();
+  }
+}
+
+// ✅ Customize your page order here
+const pages = ["index.html", "projects.html", "contact.html"];
+
+function goNextPage() {
+  const current = window.location.pathname.split("/").pop();
+  const i = pages.indexOf(current);
+  if (i !== -1 && i < pages.length - 1) {
+    window.location.href = pages[i + 1];
+  }
+}
+
+function goPrevPage() {
+  const current = window.location.pathname.split("/").pop();
+  const i = pages.indexOf(current);
+  if (i > 0) {
+    window.location.href = pages[i - 1];
+  }
+}
+</script>
+
 </body>
 </html>
