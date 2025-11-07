@@ -522,7 +522,7 @@ footer {
   /* Reduce space between text and image */
   .home-photo {
     margin: 12px auto 16px;
-    max-width: 60%; /* optional: make image smaller on mobile */
+    max-width: 50%; /* optional: make image smaller on mobile */
   }
 
   /* Reduce spacing inside main container */
