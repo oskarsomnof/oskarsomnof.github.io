@@ -518,26 +518,40 @@ footer {
 /* Mobile spacing tweaks for homepage */
 @media (max-width: 600px) {
 
-  /* Reduce top spacing before the intro block */
-  .home {
-    margin-top: 20px;
-    padding-top: 0;
+  footer {
+    padding: 32px 20px 40px !important;
   }
 
-  /* Reduce space between header <h1> and description text */
-  .home h1 {
-    margin-bottom: 8px;
+  .footer-inner {
+    position: static !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 16px !important;
   }
 
-  /* Reduce space between text and image */
-  .home-photo {
-    margin: 12px auto 16px;
-    max-width: 50%; /* optional: make image smaller on mobile */
+  .footer-center {
+    position: static !important;
+    transform: none !important;
+    width: 100% !important;
+    text-align: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 1.3 !important;
   }
 
-  /* Reduce spacing inside main container */
-  main.home {
-    padding: 0 16px 40px;
-    margin: 20px auto;
+  .footer-right {
+    position: static !important;
+    width: 100% !important;
+    text-align: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 1.3 !important;
+  }
+
+  .footer-left {
+    display: none !important;
   }
 }
+
