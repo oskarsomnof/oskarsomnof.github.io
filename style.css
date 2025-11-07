@@ -662,3 +662,20 @@ body {
     padding: 20px;
   }
 }
+
+.contact-wrapper {
+  max-width: 600px;  /* adjust for taste */
+  margin: 0 auto;   /* centers the whole block */
+}
+
+.contact-wrapper h1,
+.contact-wrapper p {
+  text-align: left;
+}
+
+.social-links {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+  text-align: left;
+}
