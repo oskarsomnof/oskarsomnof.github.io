@@ -597,7 +597,7 @@ body {
 .content {
   margin-left: 240px;
   margin-right: auto;
-  max-width: none;
+  max-width: 1200px;
 }
 
 /* ensures the content block is centered in the remaining space */
