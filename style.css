@@ -35,44 +35,10 @@ html,body {
   -moz-osx-font-smoothing:grayscale;
 }
 
-/* Header / nav — centered and consistent */
-/*header {
-  background: transparent;
-  padding: 14px 0;
-  position: center;
-  top: 0;
-  z-index: 10;
-  box-shadow: 0 0 0 rgba(0,0,0,0); /* keep minimal */
-}
-
 h1, h2, h3 {
   font-family: 'Inter Tight', sans-serif;
   font-weight: 600;
   letter-spacing: 0.02em;
-}
-
-/*nav {
-  max-width: var(--max-w);
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  gap: 24px;
-  align-items: center;
-  padding: 0 20px;
-}
-
-/*nav a {
-  color: #cfcfcf;
-  text-decoration: none;
-  font-size: 1rem;
-  letter-spacing: 0.01em;
-  transition: color 180ms ease;
-  padding: 6px 4px;
-}
-
-/* nav a:hover,
-nav a.active {
-  color: var(--accent);
 }
 
 /* Main container — centralized for all pages */
@@ -631,7 +597,7 @@ body {
 .content {
   margin-left: 240px;
   margin-right: auto;
-  max-width: 900px;
+  max-width: none;
 }
 
 /* ensures the content block is centered in the remaining space */
