@@ -6,221 +6,164 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Projects – Oskar Somnof</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://cdn.plyr.io/3.8.4/plyr.css" />
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
+
 <body>
+
+<!-- ============ SIDEBAR ============ -->
 <div class="sidebar">
   <div class="logo">
     <img src="images/OStransparent_sidebar.png" alt="Oskar Somnof logo">
   </div>
-
   
   <nav class="side-nav">
     <a href="index.html">Home</a>
-    <a href="projects.html">Projects</a>
+    <a href="projects.html" class="active">Projects</a>
     <a href="contact.html">Contact</a>
   </nav>
 </div>
 
+<!-- ============ MAIN CONTENT ============ -->
 <div class="content">
-  <main class="projects">
-   <!--<h1>Projects</h1>-->
+<main class="projects">
 
-   <!-- Two playlists side by side -->
-    
-<div class="playlist-columns">
+  <!-- PLAYLISTS SIDE BY SIDE -->
+  <div class="playlist-columns">
 
-<div class="playlist-column">
-    <h2>Cinematic Piano</h2>
+    <!-- LEFT COLUMN -->
+    <div class="playlist-column">
+      <h2>Cinematic Piano</h2>
 
-  <div class="track-row">
-      <span class="track-title">071219</span>
-
-      <div class="custom-player" data-audio="audio/071219_demo.mp3">
-        <button class="cp-play">▶</button>
-        <div class="cp-bar"><div class="cp-progress"></div></div>
-        <span class="cp-time">0:00</span>
+      <div class="track-row">
+        <span class="track-title">071219</span>
+        <div class="custom-player" data-audio="audio/071219_demo.mp3">
+          <button class="cp-play">▶</button>
+          <div class="cp-bar"><div class="cp-progress"></div></div>
+          <span class="cp-time">0:00</span>
+        </div>
       </div>
+
+      <div class="track-row">
+        <span class="track-title">No Symptoms</span>
+        <div class="custom-player" data-audio="audio/No Symptoms test.mp3">
+          <button class="cp-play">▶</button>
+          <div class="cp-bar"><div class="cp-progress"></div></div>
+          <span class="cp-time">0:00</span>
+        </div>
+      </div>
+
+      <div class="track-row">
+        <span class="track-title">Life of Wonder</span>
+        <div class="custom-player" data-audio="audio/Life of Wonder mp3.mp3">
+          <button class="cp-play">▶</button>
+          <div class="cp-bar"><div class="cp-progress"></div></div>
+          <span class="cp-time">0:00</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT COLUMN -->
+    <div class="playlist-column">
+      <h2>Electronica</h2>
+
+      <div class="track-row">
+        <span class="track-title">Equinox</span>
+        <div class="custom-player" data-audio="audio/Equinox_mp3.mp3">
+          <button class="cp-play">▶</button>
+          <div class="cp-bar"><div class="cp-progress"></div></div>
+          <span class="cp-time">0:00</span>
+        </div>
+      </div>
+
+      <div class="track-row">
+        <span class="track-title">Essentially</span>
+        <div class="custom-player" data-audio="audio/Essentially_mp3_reelcrafter.mp3">
+          <button class="cp-play">▶</button>
+          <div class="cp-bar"><div class="cp-progress"></div></div>
+          <span class="cp-time">0:00</span>
+        </div>
+      </div>
+
+      <div class="track-row">
+        <span class="track-title">Sundae</span>
+        <div class="custom-player" data-audio="audio/Sundae.mp3">
+          <button class="cp-play">▶</button>
+          <div class="cp-bar"><div class="cp-progress"></div></div>
+          <span class="cp-time">0:00</span>
+        </div>
+      </div>
+    </div>
+
+  </div> <!-- END playlist-columns -->
+
+
+  <!-- FILM PROJECTS -->
+  <div class="film-header">
+    <h2>Film projects</h2>
   </div>
-</div>
 
-<div class="track-row">
-    <span class="track-title">No Symptoms</span>
+  <section class="video-row">
 
-    <div class="custom-player" data-audio="audio/No Symptoms test.mp3">
-      <button class="cp-play">▶</button>
-      <div class="cp-bar"><div class="cp-progress"></div></div>
-      <span class="cp-time">0:00</span>
+    <div class="video">
+      <iframe src="https://www.youtube.com/embed/ccIKPj5474Q" frameborder="0" allowfullscreen></iframe>
+      <p class="video-caption">
+        Fragment of the short documentary Kehdosta Hautaan (2021, dir. Joel Hukki)
+      </p>
     </div>
-</div>
 
-<div class="track-row">
-    <span class="track-title">Life of Wonder</span>
-
-    <div class="custom-player" data-audio="audio/Life of Wonder mp3.mp3">
-      <button class="cp-play">▶</button>
-      <div class="cp-bar"><div class="cp-progress"></div></div>
-      <span class="cp-time">0:00</span>
+    <div class="video">
+      <iframe src="https://www.youtube.com/embed/5MyBQdyxcB0" frameborder="0" allowfullscreen></iframe>
+      <p class="video-caption">
+        Spitfire Audio Westworld scoring competition entry
+      </p>
     </div>
+
+  </section>
+
+</main>
 </div>
 
-<div class="playlist-column">
-    <h2>Electronica</h2>
-
-  <div class="track-row">
-      <span class="track-title">Equinox</span>
-
-      <div class="custom-player" data-audio="audio/Equinox_mp3.mp3">
-        <button class="cp-play">▶</button>
-        <div class="cp-bar"><div class="cp-progress"></div></div>
-        <span class="cp-time">0:00</span>
-      </div>
-  </div>
-</div>
-
-<div class="track-row">
-    <span class="track-title">Essentially</span>
-
-    <div class="custom-player" data-audio="audio/Essentially_mp3_reelcrafter.mp3">
-      <button class="cp-play">▶</button>
-      <div class="cp-bar"><div class="cp-progress"></div></div>
-      <span class="cp-time">0:00</span>
-    </div>
-</div>
-
-<div class="track-row">
-    <span class="track-title">Sundae</span>
-
-    <div class="custom-player" data-audio="audio/Sundae.mp3">
-      <button class="cp-play">▶</button>
-      <div class="cp-bar"><div class="cp-progress"></div></div>
-      <span class="cp-time">0:00</span>
-    </div>
-</div>
-
-</section>
-
-    <!-- Two embedded YouTube videos side by side -->
-      <div class="film-header">
-        <h2>Film projects</h2>
-      </div>
-
-    <section class="video-row">
-      <div class="video">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/ccIKPj5474Q?si=xYoOYB8f8WUylYDw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        <p class="video-caption">Fragment of the short documentary Kehdosta Hautaan (2021, dir. Joel Hukki)</p>
-      </div>
-      <div class="video">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/5MyBQdyxcB0?si=AAxZzTSk4tapJXJL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        <p class="video-caption">Spitfire Audio Westworld scoring competition entry</p>
-      </div>
-    </section>
-  </main>
-</div>
-
+<!-- ============ FOOTER ============ -->
 <footer>
   <div class="footer-inner">
     <div class="footer-left"></div>
 
-    <div class="footer-center">
-      the inexplicable put into sound
-    </div>
+    <div class="footer-center">the inexplicable put into sound</div>
 
-    <div class="footer-right">
-      © 2025 Oskar Somnof
-    </div>
+    <div class="footer-right">© 2025 Oskar Somnof</div>
   </div>
 </footer>
 
+<!-- ============ SWIPE NAVIGATION SCRIPT ============ -->
 <script>
-let startX = 0;
-let endX = 0;
-
-document.addEventListener("touchstart", e => {
-  startX = e.changedTouches[0].screenX;
-});
-
-document.addEventListener("touchend", e => {
-  endX = e.changedTouches[0].screenX;
-  handleSwipe();
-});
+let startX = 0, endX = 0;
+document.addEventListener("touchstart", e => startX = e.changedTouches[0].screenX);
+document.addEventListener("touchend", e => { endX = e.changedTouches[0].screenX; handleSwipe(); });
 
 function handleSwipe() {
-  const threshold = 80; // minimum pixels to count as a swipe
-
-  if (endX < startX - threshold) {
-    // swipe left → go forward
-    goNextPage();
-  }
-  if (endX > startX + threshold) {
-    // swipe right → go backward
-    goPrevPage();
-  }
+  const threshold = 80;
+  if (endX < startX - threshold) goNextPage();
+  if (endX > startX + threshold) goPrevPage();
 }
-
-// ✅ Customize your page order here
 const pages = ["index.html", "projects.html", "contact.html"];
 
 function goNextPage() {
-  const current = window.location.pathname.split("/").pop();
+  const current = location.pathname.split("/").pop();
   const i = pages.indexOf(current);
-  if (i !== -1 && i < pages.length - 1) {
-    window.location.href = pages[i + 1];
-  }
+  if (i !== -1 && i < pages.length - 1) location.href = pages[i + 1];
 }
-
 function goPrevPage() {
-  const current = window.location.pathname.split("/").pop();
+  const current = location.pathname.split("/").pop();
   const i = pages.indexOf(current);
-  if (i > 0) {
-    window.location.href = pages[i - 1];
-  }
+  if (i > 0) location.href = pages[i - 1];
 }
 </script>
 
+<!-- ============ CUSTOM AUDIO PLAYER SCRIPT ============ -->
 <script>
-// --- Custom Audio Player System ---
 document.querySelectorAll('.custom-player').forEach(player => {
   const audio = new Audio(player.dataset.audio);
   const playBtn = player.querySelector('.cp-play');
   const bar = player.querySelector('.cp-bar');
-  const progress = player.querySelector('.cp-progress');
-  const time = player.querySelector('.cp-time');
-
-  // Play / Pause
-  playBtn.addEventListener('click', () => {
-    if (audio.paused) {
-      audio.play();
-      playBtn.textContent = "❚❚";
-    } else {
-      audio.pause();
-      playBtn.textContent = "▶";
-    }
-  });
-
-  // Update progress bar
-  audio.addEventListener('timeupdate', () => {
-    const percent = (audio.currentTime / audio.duration) * 100;
-    progress.style.width = percent + "%";
-    time.textContent = formatTime(audio.currentTime);
-  });
-
-  // Click seek
-  bar.addEventListener('click', e => {
-    const rect = bar.getBoundingClientRect();
-    const clickX = e.clientX - rect.left;
-    const percent = clickX / rect.width;
-    audio.currentTime = percent * audio.duration;
-  });
-
-  function formatTime(t) {
-    const m = Math.floor(t / 60);
-    const s = Math.floor(t % 60).toString().padStart(2, "0");
-    return `${m}:${s}`;
-  }
-});
-</script>
-
-</body>
-</html>
+  const progress = player.querySelector('.cp-progre
