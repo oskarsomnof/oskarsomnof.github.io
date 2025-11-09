@@ -738,3 +738,80 @@ body {
   gap: 25px;
   text-align: center;
 }
+
+/* -----------------------
+   MOBILE NAVIGATION
+----------------------- */
+.mobile-nav {
+  display: none;
+  width: 100%;
+  background: #111;
+  padding: 12px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.mobile-nav-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mobile-logo {
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.mobile-burger {
+  font-size: 1.6rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Dropdown menu */
+.mobile-menu {
+  display: none;
+  flex-direction: column;
+  background: #111;
+  padding: 10px 0;
+}
+
+.mobile-menu.open {
+  display: flex;
+}
+
+.mobile-menu a {
+  color: #eee;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.mobile-menu a:hover {
+  color: #fff;
+}
+
+
+/* -----------------------
+   RESPONSIVE BREAKPOINT
+----------------------- */
+@media (max-width: 900px) {
+  
+  /* Hide desktop sidebar */
+  .sidebar {
+    display: none;
+  }
+
+  /* Show mobile nav */
+  .mobile-nav {
+    display: block;
+  }
+
+  /* Let page content be full width */
+  .content {
+    margin-left: 0 !important;
+    padding: 0 20px;
+  }
+}

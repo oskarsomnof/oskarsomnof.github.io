@@ -11,6 +11,20 @@
 
 <body>
 
+<!-- MOBILE TOP NAV -->
+<div class="mobile-nav">
+  <div class="mobile-nav-inner">
+    <div class="mobile-logo">Oskar Somnof</div>
+    <div class="mobile-burger" id="burger">☰</div>
+  </div>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="projects.html">Projects</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</div>
+
 <!-- ============ SIDEBAR ============ -->
 <div class="sidebar">
   <div class="logo">
@@ -165,6 +179,15 @@ document.querySelectorAll('.custom-player').forEach(player => {
     const s = Math.floor(t % 60).toString().padStart(2, "0");
     return `${m}:${s}`;
   }
+});
+</script>
+
+<script>
+const burger = document.getElementById("burger");
+const menu = document.getElementById("mobileMenu");
+
+burger.addEventListener("click", () => {
+  menu.classList.toggle("open");
 });
 </script>
 

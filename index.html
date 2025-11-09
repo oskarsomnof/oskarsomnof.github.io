@@ -9,6 +9,21 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
+
+  <!-- MOBILE TOP NAV -->
+<div class="mobile-nav">
+  <div class="mobile-nav-inner">
+    <div class="mobile-logo">Oskar Somnof</div>
+    <div class="mobile-burger" id="burger">☰</div>
+  </div>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="projects.html">Projects</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</div>
+
 <div class="sidebar">
   <div class="logo">Oskar Somnof</div>
 
@@ -42,6 +57,15 @@
     </div>
   </div>
 </footer>
+
+<script>
+const burger = document.getElementById("burger");
+const menu = document.getElementById("mobileMenu");
+
+burger.addEventListener("click", () => {
+  menu.classList.toggle("open");
+});
+</script>
 
 </body>
 </html>
