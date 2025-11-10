@@ -55,7 +55,12 @@
           <button class="cp-play">▶</button>
           <div class="cp-bar"><div class="cp-progress"></div></div>
                <div class="cp-volume-wrapper">
-                  <button class="cp-volume-btn">🔊</button>
+                  <button class="cp-volume-btn">
+                    <svg viewBox="0 0 24 24" class="cp-icon">
+                      <path fill="currentColor" d="M3 10v4h4l5 5V5L7 10H3z"/>
+                      <path fill="currentColor" d="M14 8.23v7.53c1.19-.69 2-2 2-3.77s-.81-3.08-2-3.76z"/>
+                    </svg>
+                  </button>
                   <div class="cp-volume-drawer">
                 <input type="range" class="cp-volume" min="0" max="1" step="0.01" value="1">
         </div>
@@ -70,7 +75,12 @@
           <button class="cp-play">▶</button>
           <div class="cp-bar"><div class="cp-progress"></div></div>
     <div class="cp-volume-wrapper">
-        <button class="cp-volume-btn">🔊</button>
+<button class="cp-volume-btn">
+  <svg viewBox="0 0 24 24" class="cp-icon">
+    <path fill="currentColor" d="M3 10v4h4l5 5V5L7 10H3z"/>
+    <path fill="currentColor" d="M14 8.23v7.53c1.19-.69 2-2 2-3.77s-.81-3.08-2-3.76z"/>
+  </svg>
+</button>
         <div class="cp-volume-drawer">
             <input type="range" class="cp-volume" min="0" max="1" step="0.01" value="1">
         </div>
@@ -85,7 +95,13 @@
           <button class="cp-play">▶</button>
           <div class="cp-bar"><div class="cp-progress"></div></div>
               <div class="cp-volume-wrapper">
-        <button class="cp-volume-btn">🔊</button>
+<button class="cp-volume-btn">
+  <svg viewBox="0 0 24 24" class="cp-icon">
+    <path fill="currentColor" d="M3 10v4h4l5 5V5L7 10H3z"/>
+    <path fill="currentColor" d="M14 8.23v7.53c1.19-.69 2-2 2-3.77s-.81-3.08-2-3.76z"/>
+  </svg>
+</button>
+
         <div class="cp-volume-drawer">
             <input type="range" class="cp-volume" min="0" max="1" step="0.01" value="1">
         </div>
@@ -105,7 +121,13 @@
           <button class="cp-play">▶</button>
           <div class="cp-bar"><div class="cp-progress"></div></div>
                <div class="cp-volume-wrapper">
-        <button class="cp-volume-btn">🔊</button>
+<button class="cp-volume-btn">
+  <svg viewBox="0 0 24 24" class="cp-icon">
+    <path fill="currentColor" d="M3 10v4h4l5 5V5L7 10H3z"/>
+    <path fill="currentColor" d="M14 8.23v7.53c1.19-.69 2-2 2-3.77s-.81-3.08-2-3.76z"/>
+  </svg>
+</button>
+
         <div class="cp-volume-drawer">
             <input type="range" class="cp-volume" min="0" max="1" step="0.01" value="1">
         </div>
@@ -120,7 +142,13 @@
           <button class="cp-play">▶</button>
           <div class="cp-bar"><div class="cp-progress"></div></div>
               <div class="cp-volume-wrapper">
-        <button class="cp-volume-btn">🔊</button>
+<button class="cp-volume-btn">
+  <svg viewBox="0 0 24 24" class="cp-icon">
+    <path fill="currentColor" d="M3 10v4h4l5 5V5L7 10H3z"/>
+    <path fill="currentColor" d="M14 8.23v7.53c1.19-.69 2-2 2-3.77s-.81-3.08-2-3.76z"/>
+  </svg>
+</button>
+
         <div class="cp-volume-drawer">
             <input type="range" class="cp-volume" min="0" max="1" step="0.01" value="1">
         </div>
@@ -135,7 +163,13 @@
           <button class="cp-play">▶</button>
           <div class="cp-bar"><div class="cp-progress"></div></div>
               <div class="cp-volume-wrapper">
-        <button class="cp-volume-btn">🔊</button>
+<button class="cp-volume-btn">
+  <svg viewBox="0 0 24 24" class="cp-icon">
+    <path fill="currentColor" d="M3 10v4h4l5 5V5L7 10H3z"/>
+    <path fill="currentColor" d="M14 8.23v7.53c1.19-.69 2-2 2-3.77s-.81-3.08-2-3.76z"/>
+  </svg>
+</button>
+
         <div class="cp-volume-drawer">
             <input type="range" class="cp-volume" min="0" max="1" step="0.01" value="1">
         </div>
@@ -198,20 +232,18 @@ document.querySelectorAll('.custom-player').forEach(player => {
   const progress = player.querySelector('.cp-progress');
   const time = player.querySelector('.cp-time');
 
-  // Volume elements
   const volumeWrapper = player.querySelector('.cp-volume-wrapper');
-  const volumeDrawer = player.querySelector('.cp-volume-drawer');
   const volumeSlider = player.querySelector('.cp-volume');
   const volumeBtn = player.querySelector('.cp-volume-btn');
 
-  // ————————— PLAY / PAUSE —————————
-  playBtn.addEventListener('click', () => {
+  let isScrubbing = false;
 
+  // PLAY
+  playBtn.addEventListener('click', () => {
     if (currentAudio && currentAudio !== audio) {
       currentAudio.pause();
       currentButton.textContent = "▶";
     }
-
     if (audio.paused) {
       audio.play();
       playBtn.textContent = "❚❚";
@@ -227,40 +259,60 @@ document.querySelectorAll('.custom-player').forEach(player => {
     }
   });
 
-  // ————————— PROGRESS BAR —————————
+  // UPDATE UI
   audio.addEventListener('timeupdate', () => {
-    progress.style.width = (audio.currentTime / audio.duration) * 100 + "%";
+    if (!isScrubbing) {
+      progress.style.width = (audio.currentTime / audio.duration) * 100 + "%";
+    }
     time.textContent = formatTime(audio.currentTime);
   });
 
-  bar.addEventListener('click', e => {
-    const r = bar.getBoundingClientRect();
-    const pct = (e.clientX - r.left) / r.width;
+  // REAL SCRUBBING
+  const scrub = (clientX) => {
+    const rect = bar.getBoundingClientRect();
+    const pct = Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
+    progress.style.width = (pct * 100) + "%";
     audio.currentTime = pct * audio.duration;
+  };
+
+  bar.addEventListener('mousedown', (e) => {
+    isScrubbing = true;
+    scrub(e.clientX);
   });
 
-  audio.addEventListener('ended', () => {
-    playBtn.textContent = "▶";
-    progress.style.width = "0%";
-
-    if (currentAudio === audio) {
-      currentAudio = null;
-      currentButton = null;
-    }
+  window.addEventListener('mousemove', (e) => {
+    if (isScrubbing) scrub(e.clientX);
   });
 
-  // ————————— VOLUME —————————
+  window.addEventListener('mouseup', () => {
+    isScrubbing = false;
+  });
+
+  // MOBILE SCRUBBING
+  bar.addEventListener('touchstart', (e) => {
+    isScrubbing = true;
+    scrub(e.touches[0].clientX);
+  });
+
+  window.addEventListener('touchmove', (e) => {
+    if (isScrubbing) scrub(e.touches[0].clientX);
+  });
+
+  window.addEventListener('touchend', () => {
+    isScrubbing = false;
+  });
+
+  // VOLUME
   volumeSlider.addEventListener('input', () => {
     audio.volume = volumeSlider.value;
   });
 
-  // Mobile: tap icon toggles drawer
+  // MOBILE VOLUME ICON TOGGLE
   volumeBtn.addEventListener('click', (e) => {
-    e.stopPropagation(); 
+    e.stopPropagation();
     volumeWrapper.classList.toggle('open');
   });
 
-  // Close drawer if clicking outside on mobile
   document.addEventListener('click', (e) => {
     if (!volumeWrapper.contains(e.target)) {
       volumeWrapper.classList.remove('open');
@@ -274,6 +326,7 @@ document.querySelectorAll('.custom-player').forEach(player => {
   }
 });
 </script>
+
 
 </body>
 </html>
