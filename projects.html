@@ -54,7 +54,12 @@
         <div class="custom-player" data-audio="audio/071219_demo.mp3">
           <button class="cp-play">▶</button>
           <div class="cp-bar"><div class="cp-progress"></div></div>
-           <input type="range" class="cp-volume" min="0" max="1" step="0.01" value="1">
+               <div class="cp-volume-wrapper">
+                  <button class="cp-volume-btn">🔊</button>
+                  <div class="cp-volume-drawer">
+                <input type="range" class="cp-volume" min="0" max="1" step="0.01" value="1">
+        </div>
+    </div>
           <span class="cp-time">0:00</span>
         </div>
       </div>
@@ -64,8 +69,13 @@
         <div class="custom-player" data-audio="audio/No Symptoms test.mp3">
           <button class="cp-play">▶</button>
           <div class="cp-bar"><div class="cp-progress"></div></div>
-           <input type="range" class="cp-volume" min="0" max="1" step="0.01" value="1">
-          <span class="cp-time">0:00</span>
+    <div class="cp-volume-wrapper">
+        <button class="cp-volume-btn">🔊</button>
+        <div class="cp-volume-drawer">
+            <input type="range" class="cp-volume" min="0" max="1" step="0.01" value="1">
+        </div>
+    </div>
+              <span class="cp-time">0:00</span>
         </div>
       </div>
 
@@ -74,7 +84,12 @@
         <div class="custom-player" data-audio="audio/Life of Wonder mp3.mp3">
           <button class="cp-play">▶</button>
           <div class="cp-bar"><div class="cp-progress"></div></div>
-           <input type="range" class="cp-volume" min="0" max="1" step="0.01" value="1">
+              <div class="cp-volume-wrapper">
+        <button class="cp-volume-btn">🔊</button>
+        <div class="cp-volume-drawer">
+            <input type="range" class="cp-volume" min="0" max="1" step="0.01" value="1">
+        </div>
+    </div>
           <span class="cp-time">0:00</span>
         </div>
       </div>
@@ -89,7 +104,12 @@
         <div class="custom-player" data-audio="audio/Equinox_mp3.mp3">
           <button class="cp-play">▶</button>
           <div class="cp-bar"><div class="cp-progress"></div></div>
-           <input type="range" class="cp-volume" min="0" max="1" step="0.01" value="1">
+               <div class="cp-volume-wrapper">
+        <button class="cp-volume-btn">🔊</button>
+        <div class="cp-volume-drawer">
+            <input type="range" class="cp-volume" min="0" max="1" step="0.01" value="1">
+        </div>
+    </div>
           <span class="cp-time">0:00</span>
         </div>
       </div>
@@ -99,7 +119,12 @@
         <div class="custom-player" data-audio="audio/Essentially_mp3_reelcrafter.mp3">
           <button class="cp-play">▶</button>
           <div class="cp-bar"><div class="cp-progress"></div></div>
-           <input type="range" class="cp-volume" min="0" max="1" step="0.01" value="1">
+              <div class="cp-volume-wrapper">
+        <button class="cp-volume-btn">🔊</button>
+        <div class="cp-volume-drawer">
+            <input type="range" class="cp-volume" min="0" max="1" step="0.01" value="1">
+        </div>
+    </div>
           <span class="cp-time">0:00</span>
         </div>
       </div>
@@ -109,7 +134,12 @@
         <div class="custom-player" data-audio="audio/Sundae.mp3">
           <button class="cp-play">▶</button>
           <div class="cp-bar"><div class="cp-progress"></div></div>
-           <input type="range" class="cp-volume" min="0" max="1" step="0.01" value="1">
+              <div class="cp-volume-wrapper">
+        <button class="cp-volume-btn">🔊</button>
+        <div class="cp-volume-drawer">
+            <input type="range" class="cp-volume" min="0" max="1" step="0.01" value="1">
+        </div>
+    </div>
           <span class="cp-time">0:00</span>
         </div>
       </div>
@@ -162,11 +192,17 @@ let currentButton = null;
 
 document.querySelectorAll('.custom-player').forEach(player => {
   const audio = new Audio(player.dataset.audio);
+
   const playBtn = player.querySelector('.cp-play');
   const bar = player.querySelector('.cp-bar');
   const progress = player.querySelector('.cp-progress');
   const time = player.querySelector('.cp-time');
-  const vol = player.querySelector('.cp-volume');
+
+  // Volume elements
+  const volumeWrapper = player.querySelector('.cp-volume-wrapper');
+  const volumeDrawer = player.querySelector('.cp-volume-drawer');
+  const volumeSlider = player.querySelector('.cp-volume');
+  const volumeBtn = player.querySelector('.cp-volume-btn');
 
   // ————————— PLAY / PAUSE —————————
   playBtn.addEventListener('click', () => {
@@ -184,7 +220,6 @@ document.querySelectorAll('.custom-player').forEach(player => {
     } else {
       audio.pause();
       playBtn.textContent = "▶";
-
       if (currentAudio === audio) {
         currentAudio = null;
         currentButton = null;
@@ -199,9 +234,9 @@ document.querySelectorAll('.custom-player').forEach(player => {
   });
 
   bar.addEventListener('click', e => {
-    const rect = bar.getBoundingClientRect();
-    const percent = (e.clientX - rect.left) / rect.width;
-    audio.currentTime = percent * audio.duration;
+    const r = bar.getBoundingClientRect();
+    const pct = (e.clientX - r.left) / r.width;
+    audio.currentTime = pct * audio.duration;
   });
 
   audio.addEventListener('ended', () => {
@@ -214,9 +249,22 @@ document.querySelectorAll('.custom-player').forEach(player => {
     }
   });
 
-  // ————————— VOLUME CONTROL —————————
-  vol.addEventListener('input', () => {
-    audio.volume = vol.value;
+  // ————————— VOLUME —————————
+  volumeSlider.addEventListener('input', () => {
+    audio.volume = volumeSlider.value;
+  });
+
+  // Mobile: tap icon toggles drawer
+  volumeBtn.addEventListener('click', (e) => {
+    e.stopPropagation(); 
+    volumeWrapper.classList.toggle('open');
+  });
+
+  // Close drawer if clicking outside on mobile
+  document.addEventListener('click', (e) => {
+    if (!volumeWrapper.contains(e.target)) {
+      volumeWrapper.classList.remove('open');
+    }
   });
 
   function formatTime(t) {
@@ -224,17 +272,6 @@ document.querySelectorAll('.custom-player').forEach(player => {
     const s = Math.floor(t % 60).toString().padStart(2, "0");
     return `${m}:${s}`;
   }
-});
-</script>
-
-
-
-<script>
-const burger = document.getElementById("burger");
-const menu = document.getElementById("mobileMenu");
-
-burger.addEventListener("click", () => {
-  menu.classList.toggle("open");
 });
 </script>
 
