@@ -54,6 +54,7 @@
         <div class="custom-player" data-audio="audio/071219_demo.mp3">
           <button class="cp-play">▶</button>
           <div class="cp-bar"><div class="cp-progress"></div></div>
+           <input type="range" class="cp-volume" min="0" max="1" step="0.01" value="1">
           <span class="cp-time">0:00</span>
         </div>
       </div>
@@ -63,6 +64,7 @@
         <div class="custom-player" data-audio="audio/No Symptoms test.mp3">
           <button class="cp-play">▶</button>
           <div class="cp-bar"><div class="cp-progress"></div></div>
+           <input type="range" class="cp-volume" min="0" max="1" step="0.01" value="1">
           <span class="cp-time">0:00</span>
         </div>
       </div>
@@ -72,6 +74,7 @@
         <div class="custom-player" data-audio="audio/Life of Wonder mp3.mp3">
           <button class="cp-play">▶</button>
           <div class="cp-bar"><div class="cp-progress"></div></div>
+           <input type="range" class="cp-volume" min="0" max="1" step="0.01" value="1">
           <span class="cp-time">0:00</span>
         </div>
       </div>
@@ -86,6 +89,7 @@
         <div class="custom-player" data-audio="audio/Equinox_mp3.mp3">
           <button class="cp-play">▶</button>
           <div class="cp-bar"><div class="cp-progress"></div></div>
+           <input type="range" class="cp-volume" min="0" max="1" step="0.01" value="1">
           <span class="cp-time">0:00</span>
         </div>
       </div>
@@ -95,6 +99,7 @@
         <div class="custom-player" data-audio="audio/Essentially_mp3_reelcrafter.mp3">
           <button class="cp-play">▶</button>
           <div class="cp-bar"><div class="cp-progress"></div></div>
+           <input type="range" class="cp-volume" min="0" max="1" step="0.01" value="1">
           <span class="cp-time">0:00</span>
         </div>
       </div>
@@ -104,6 +109,7 @@
         <div class="custom-player" data-audio="audio/Sundae.mp3">
           <button class="cp-play">▶</button>
           <div class="cp-bar"><div class="cp-progress"></div></div>
+           <input type="range" class="cp-volume" min="0" max="1" step="0.01" value="1">
           <span class="cp-time">0:00</span>
         </div>
       </div>
@@ -151,8 +157,8 @@
 
 <!-- ============ CUSTOM AUDIO PLAYER SCRIPT ============ -->
 <script>
-let currentAudio = null;       // the audio currently playing
-let currentButton = null;      // its play button
+let currentAudio = null;
+let currentButton = null;
 
 document.querySelectorAll('.custom-player').forEach(player => {
   const audio = new Audio(player.dataset.audio);
@@ -160,10 +166,11 @@ document.querySelectorAll('.custom-player').forEach(player => {
   const bar = player.querySelector('.cp-bar');
   const progress = player.querySelector('.cp-progress');
   const time = player.querySelector('.cp-time');
+  const vol = player.querySelector('.cp-volume');
 
+  // ————————— PLAY / PAUSE —————————
   playBtn.addEventListener('click', () => {
 
-    // If clicking a NEW audio while another is playing → stop old one
     if (currentAudio && currentAudio !== audio) {
       currentAudio.pause();
       currentButton.textContent = "▶";
@@ -172,14 +179,12 @@ document.querySelectorAll('.custom-player').forEach(player => {
     if (audio.paused) {
       audio.play();
       playBtn.textContent = "❚❚";
-
-      currentAudio = audio;      // track as active
+      currentAudio = audio;
       currentButton = playBtn;
     } else {
       audio.pause();
       playBtn.textContent = "▶";
 
-      // clear if paused manually
       if (currentAudio === audio) {
         currentAudio = null;
         currentButton = null;
@@ -187,6 +192,7 @@ document.querySelectorAll('.custom-player').forEach(player => {
     }
   });
 
+  // ————————— PROGRESS BAR —————————
   audio.addEventListener('timeupdate', () => {
     progress.style.width = (audio.currentTime / audio.duration) * 100 + "%";
     time.textContent = formatTime(audio.currentTime);
@@ -208,6 +214,11 @@ document.querySelectorAll('.custom-player').forEach(player => {
     }
   });
 
+  // ————————— VOLUME CONTROL —————————
+  vol.addEventListener('input', () => {
+    audio.volume = vol.value;
+  });
+
   function formatTime(t) {
     const m = Math.floor(t / 60);
     const s = Math.floor(t % 60).toString().padStart(2, "0");
@@ -215,6 +226,7 @@ document.querySelectorAll('.custom-player').forEach(player => {
   }
 });
 </script>
+
 
 
 <script>
