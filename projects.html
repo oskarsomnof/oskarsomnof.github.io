@@ -151,6 +151,9 @@
 
 <!-- ============ CUSTOM AUDIO PLAYER SCRIPT ============ -->
 <script>
+let currentAudio = null;       // the audio currently playing
+let currentButton = null;      // its play button
+
 document.querySelectorAll('.custom-player').forEach(player => {
   const audio = new Audio(player.dataset.audio);
   const playBtn = player.querySelector('.cp-play');
@@ -159,8 +162,29 @@ document.querySelectorAll('.custom-player').forEach(player => {
   const time = player.querySelector('.cp-time');
 
   playBtn.addEventListener('click', () => {
-    if (audio.paused) { audio.play(); playBtn.textContent = "❚❚"; }
-    else { audio.pause(); playBtn.textContent = "▶"; }
+
+    // If clicking a NEW audio while another is playing → stop old one
+    if (currentAudio && currentAudio !== audio) {
+      currentAudio.pause();
+      currentButton.textContent = "▶";
+    }
+
+    if (audio.paused) {
+      audio.play();
+      playBtn.textContent = "❚❚";
+
+      currentAudio = audio;      // track as active
+      currentButton = playBtn;
+    } else {
+      audio.pause();
+      playBtn.textContent = "▶";
+
+      // clear if paused manually
+      if (currentAudio === audio) {
+        currentAudio = null;
+        currentButton = null;
+      }
+    }
   });
 
   audio.addEventListener('timeupdate', () => {
@@ -174,6 +198,16 @@ document.querySelectorAll('.custom-player').forEach(player => {
     audio.currentTime = percent * audio.duration;
   });
 
+  audio.addEventListener('ended', () => {
+    playBtn.textContent = "▶";
+    progress.style.width = "0%";
+
+    if (currentAudio === audio) {
+      currentAudio = null;
+      currentButton = null;
+    }
+  });
+
   function formatTime(t) {
     const m = Math.floor(t / 60);
     const s = Math.floor(t % 60).toString().padStart(2, "0");
@@ -181,6 +215,7 @@ document.querySelectorAll('.custom-player').forEach(player => {
   }
 });
 </script>
+
 
 <script>
 const burger = document.getElementById("burger");
